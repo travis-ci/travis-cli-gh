@@ -1,4 +1,4 @@
-# GitHub Plugin for Travis CLI
+# GitHub Plugin for Travis CLI [![Build Status](https://travis-ci.org/travis-ci/travis-cli-gh.png?branch=master)](https://travis-ci.org/travis-ci/travis-cli-gh)
 
 This plugin for the [Travis Command Line Client](https://github.com/travis-ci/travis#readme) adds commands that interact with the [GitHub API](http://developer.github.com/v3/) rather than the Travis API. This plugin requires Ruby 2.0 or newer.
 
