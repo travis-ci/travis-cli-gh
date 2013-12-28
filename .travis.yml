@@ -10,3 +10,4 @@ deploy:
   gem: travis-cli-gh
   on:
     repo: travis-ci/travis-cli-gh
+    ruby: 2.0.0
