@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+- 2.0.0
+- 2.1.0
+script: bundle exec rspec -bc
+deploy:
+  provider: rubygems
+  api_key:
+    secure: AAZsdcsu1vs/T1e+zu6GQtsXjllJhQGxl2VpPFyEJCF2RamZTH13yEoZg1WhySDPhF9lG9tVh6XstK0AiC8Skui0g1UhrGLsyqF+AEqAHnSkdGudqV4OWUWXN78C12DZdWR1825k46ZQG7PVYIUpShN1Fu/VUNK+oK0Pydrk+vw=
+  gem: travis-cli-gh
+  on:
+    repo: travis-ci/travis-cli-gh
