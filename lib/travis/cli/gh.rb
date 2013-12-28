@@ -4,12 +4,15 @@ require 'fileutils'
 module Travis
   module CLI
     module Gh
+      autoload :Cat,         'travis/cli/gh/cat'
+      autoload :Fetch,       'travis/cli/gh/fetch'
       autoload :GitHub,      'travis/cli/gh/github'
       autoload :Login,       'travis/cli/gh/login'
       autoload :Signature,   'travis/cli/gh/signature'
       autoload :Subcommands, 'travis/cli/gh/subcommands'
       autoload :VERSION,     'travis/cli/gh/version'
       autoload :Whoami,      'travis/cli/gh/whoami'
+      autoload :Write,       'travis/cli/gh/write'
 
       extend self
 

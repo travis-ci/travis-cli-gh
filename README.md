@@ -4,7 +4,21 @@ This plugin for the [Travis Command Line Client](https://github.com/travis-ci/tr
 
 ## Usage
 
-This plugin adds the following commands: [`gh-login`](#gh-login), [`gh-signature`](#gh-signature) and [`gh-whoami`](#gh-whoami). All these commands will use the Travis API endpoint for automatically figuring out which GitHub API endpoint to use (relevant for setups using GitHub Enterprise).
+This plugin adds the following commands: [`gh-cat`](#gh-cat), [`gh-fetch`](#gh-fetch), [`gh-login`](#gh-login), [`gh-signature`](#gh-signature) and [`gh-whoami`](#gh-whoami). All these commands will use the Travis API endpoint for automatically figuring out which GitHub API endpoint to use (relevant for setups using GitHub Enterprise).
+
+### `gh-cat`
+
+This displays one (or more) files from a repository:
+
+    $ travis gh-cat .travis.yml -r rails/rails
+    script: 'ci/travis.rb'
+    before_install:
+      - travis_retry gem install bundler
+      - "rvm current | grep 'jruby' && export AR_JDBC=true || echo"
+
+### `gh-fetch`
+
+Just like `travis gh-cat`, but stores the contents in a file by the same name instead of displaying it. Allows you to specify a path to store it under via `-p` and overrides existing files with `-f`.
 
 ### `gh-login`
 

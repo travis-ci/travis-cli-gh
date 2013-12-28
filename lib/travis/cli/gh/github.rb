@@ -1,10 +1,21 @@
 require 'travis/tools/github'
+require 'json'
 
 module Travis::CLI
   module Gh
     module GitHub
+      module Error
+        def gh_error(e)
+          raise e unless e.respond_to? :info
+          message = e.info[:response_body].to_s
+          message = JSON.load(message).fetch('message') rescue nil
+          error message
+        end
+      end
+
       module Anonymous
         def gh
+          load_gh
           GH
         end
       end
@@ -18,6 +29,7 @@ module Travis::CLI
         end
 
         def auth
+          load_gh
           @auth ||= Travis::Tools::Github.new(session.config['github']) do |g|
             g.note          = "token for travis-cli-gh"
             g.scopes        = ['user', 'user:email', 'repo']
@@ -39,6 +51,14 @@ module Travis::CLI
         def plugin_config
           config['gihub'] ||= {}
           config['gihub'][github_endpoint.host] ||= {}
+        end
+      end
+
+      module AutoAuth
+        include Authenticated
+        def gh
+          load_gh
+          org? ? GH : super
         end
       end
 
