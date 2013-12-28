@@ -12,7 +12,7 @@ module Travis
       autoload :Subcommands, 'travis/cli/gh/subcommands'
       autoload :VERSION,     'travis/cli/gh/version'
       autoload :Whoami,      'travis/cli/gh/whoami'
-      autoload :Write,       'travis/cli/gh/write'
+      #autoload :Write,       'travis/cli/gh/write'
 
       extend self
 
