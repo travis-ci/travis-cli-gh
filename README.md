@@ -4,7 +4,7 @@ This plugin for the [Travis Command Line Client](https://github.com/travis-ci/tr
 
 ## Usage
 
-This plugin adds the following commands: [`gh-login`](#gh-login) and [`gh-signature`](#gh-signature). All these commands will use the Travis API endpoint for automatically figuring out which GitHub API endpoint to use (relevant for setups using GitHub Enterprise).
+This plugin adds the following commands: [`gh-login`](#gh-login), [`gh-signature`](#gh-signature) and [`gh-whoami`](#gh-whoami). All these commands will use the Travis API endpoint for automatically figuring out which GitHub API endpoint to use (relevant for setups using GitHub Enterprise).
 
 ### `gh-login`
 
