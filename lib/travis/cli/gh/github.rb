@@ -6,9 +6,10 @@ module Travis::CLI
     module GitHub
       module Error
         def gh_error(e)
-          raise e unless e.respond_to? :info
+          raise e if explode? or not e.respond_to? :info
           message = e.info[:response_body].to_s
           message = JSON.load(message).fetch('message') rescue nil
+          message = "GitHub says: #{message}"
           error message
         end
       end

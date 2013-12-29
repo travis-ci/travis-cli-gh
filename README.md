@@ -4,7 +4,7 @@ This plugin for the [Travis Command Line Client](https://github.com/travis-ci/tr
 
 ## Usage
 
-This plugin adds the following commands: [`gh-cat`](#gh-cat), [`gh-fetch`](#gh-fetch), [`gh-login`](#gh-login), [`gh-signature`](#gh-signature) and [`gh-whoami`](#gh-whoami). All these commands will use the Travis API endpoint for automatically figuring out which GitHub API endpoint to use (relevant for setups using GitHub Enterprise).
+This plugin adds the following commands: [`gh-cat`](#gh-cat), [`gh-fetch`](#gh-fetch), [`gh-login`](#gh-login), [`gh-signature`](#gh-signature), [`gh-upload`](#gh-upload), [`gh-whoami`](#gh-whoami) and  [`gh-write`](#gh-write). All these commands will use the Travis API endpoint for automatically figuring out which GitHub API endpoint to use (relevant for setups using GitHub Enterprise).
 
 ### `gh-cat`
 
@@ -42,12 +42,57 @@ Like [other commands](https://github.com/travis-ci/travis#repository-commands), 
 
 This signature should be kept somewhat secret, otherwise other people can send you fake web hooks.
 
+### `gh-upload`
+
+    GitHub plugin: upload one or more files to the repository.
+        -h, --help                       Display help
+        -E, --[no-]explode               don't rescue exceptions
+            --debug                      show API requests
+        -X, --enterprise [NAME]          use enterprise setup (optionally takes name for multiple setups)
+        -r, --repo SLUG                  repository to use (will try to detect from current git clone)
+        -b, --branch BRANCH              branch to write to
+        -m, --message MESSAGE            commit message
+        -C, --create                     only create new files
+        -U, --update                     only update existing files
+        -c, --committer USER             set committer (format: "name <email>", defaults to current user)
+        -a, --author USER                set author (format: "name <email>", defaults to committer)
+        -A, --append                     append to file if it already exists
+        -p, --prefix DIR                 prefix to store it under
+
+Like [`gh-write`](#gh-write), but uploads a file by the same name.
+
+    $ travis gh-upload ../somwhere/example.txt -p test
+    Uploading ../somwhere/example.txt as test/example.txt
+
 ### `gh-whoami`
 
 Displays which GitHub account you are logged in with on GitHub.
 
     $ travis gh-whoami
     logged in as rkh
+
+### `gh-write`
+
+    GitHub plugin: write stdin to the given path in the repository.
+    Usage: travis gh-write path [options]
+        -h, --help                       Display help
+        -E, --[no-]explode               don't rescue exceptions
+            --debug                      show API requests
+        -X, --enterprise [NAME]          use enterprise setup (optionally takes name for multiple setups)
+        -r, --repo SLUG                  repository to use (will try to detect from current git clone)
+        -b, --branch BRANCH              branch to write to
+        -m, --message MESSAGE            commit message
+        -C, --create                     only create new files
+        -U, --update                     only update existing files
+        -c, --committer USER             set committer (format: "name <email>", defaults to current user)
+        -a, --author USER                set author (format: "name <email>", defaults to committer)
+        -A, --append                     append to file if it already exists
+
+Reads from stdin and writes it to the given file in the repository.
+
+    $ travis gh-write example -r example/repo
+    Hi folks!
+    <Ctrl+d>
 
 ## Installation
 

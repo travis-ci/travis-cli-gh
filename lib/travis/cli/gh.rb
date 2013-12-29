@@ -10,9 +10,10 @@ module Travis
       autoload :Login,       'travis/cli/gh/login'
       autoload :Signature,   'travis/cli/gh/signature'
       autoload :Subcommands, 'travis/cli/gh/subcommands'
+      autoload :Upload,      'travis/cli/gh/upload'
       autoload :VERSION,     'travis/cli/gh/version'
       autoload :Whoami,      'travis/cli/gh/whoami'
-      #autoload :Write,       'travis/cli/gh/write'
+      autoload :Write,       'travis/cli/gh/write'
 
       extend self
 

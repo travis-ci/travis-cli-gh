@@ -2,7 +2,7 @@ module Travis::CLI
   module Gh
     class Fetch < Cat
       description "download a file from a repository"
-      on '-p', '--prefix DIR', 'Prefix to store it under'
+      on '-p', '--prefix DIR', 'prefix to store it under'
       on '-f', '--force', 'override existing files'
 
       def run(*paths)
