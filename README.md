@@ -114,6 +114,13 @@ Here's an example:
 
 ## Version History
 
-**0.1.0** (not yet released)
+**0.1.0** (December 29, 2013)
 
 * Initial release
+* Add `travis gh-cat` (displays the contents of a file on GitHub)
+* Add `travis gh-fetch` (download a file from a repository)
+* Add `travis gh-login` (authenticates against GitHub and stores the token)
+* Add `travis gh-signature` (generates the signature used to verify Travis CI web hooks)
+* Add `travis gh-upload` (upload one or more files to the repository)
+* Add `travis gh-whoami` (displays the user you are logged in as on GitHub)
+* Add `travis gh-write` (write stdin to the given path in the repository)
