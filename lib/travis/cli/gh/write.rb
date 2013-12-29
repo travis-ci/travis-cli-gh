@@ -44,7 +44,7 @@ module Travis::CLI
       def put(path, content = "", encoded_content: Base64.encode64(content), **options)
         options[:message]   = message if message
         options[:branch]    = branch  if branch
-        options[:content]   = encoded_content
+        options[:content]   = encoded_content.gsub("\n", "")
         options[:path]      = path
         options[:committer] = parse_user(:committer) if committer
         options[:author]    = parse_user(:author)    if author
