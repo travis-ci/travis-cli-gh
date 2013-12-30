@@ -2,6 +2,17 @@
 
 This plugin for the [Travis Command Line Client](https://github.com/travis-ci/travis#readme) adds commands that interact with the [GitHub API](http://developer.github.com/v3/) rather than the Travis API. This plugin requires Ruby 2.0 or newer.
 
+#### Why a plugin?
+
+So why is this a plugin instead of its stand-alone command line tool?
+
+* To demonstrate how to write a plugin for the travis gem and distribute it as gem itself.
+* To rely on the existing code (auth, configuration, enterprise integration, etc) and infrastructure (like fancy zsh completion, debugging, error reporting).
+* Some commands are [Travis specific](#gh-signature).
+* All the commands are useful for scripting workflows around Travis CI.
+
+That said, most of this could probably make it into a stand-alone tool.
+
 ## Usage
 
 This plugin adds the following commands: [`gh-cat`](#gh-cat), [`gh-fetch`](#gh-fetch), [`gh-login`](#gh-login), [`gh-signature`](#gh-signature), [`gh-upload`](#gh-upload), [`gh-whoami`](#gh-whoami) and  [`gh-write`](#gh-write). All these commands will use the Travis API endpoint for automatically figuring out which GitHub API endpoint to use (relevant for setups using GitHub Enterprise).
