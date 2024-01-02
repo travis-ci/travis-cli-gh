@@ -11,3 +11,5 @@ deploy:
   on:
     repo: travis-ci/travis-cli-gh
     ruby: 2.0.0
+before_install:
+  - gem install rubygems-update -v 3.4.22
